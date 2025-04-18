@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="page-title">Моето Портфолио</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0d1b2a;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding-top: 20px;
+      min-height: 100vh;
+    }
+    header {
+      position: relative;
+      text-align: center;
+      margin-bottom: 20px; /* Reduced spacing */
+      width: 100%;
+    }
+    .language-dropdown {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+    .language-dropdown select {
+      background-color: #1b263b;
+      color: white;
+      border: 1px solid #6a82fb;
+      border-radius: 5px;
+      padding: 5px;
+      font-size: 14px;
+    }
+    header img {
+      width: 100px; /* Smaller logo */
+      height: auto;
+      mix-blend-mode: screen;
+    }
+    #giveaway {
+      background: #1b263b;
+      border-radius: 12px;
+      padding: 40px;
+      width: 100%;
+      max-width: 1000px;
+      margin: 20px;
+      text-align: center;
+    }
+    #giveaway h2 {
+      color: #6a82fb;
+      margin-bottom: 20px;
+      font-size: 2rem;
+    }
+    #giveaway p {
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+    }
+  </style>
+  <script>
+    const translations = {
+      en: { title: "My Portfolio", giveaway: "Giveaway", giveawayText: "Enter now for a chance to win!" },
+      es: { title: "Mi Portafolio", giveaway: "Sorteo", giveawayText: "¡Participa ahora para tener la oportunidad de ganar!" },
+      bg: { title: "Моето Портфолио", giveaway: "Giveaway", giveawayText: "Включи се сега за шанс да спечелиш!" }
+    };
+    function setLanguage(lang) {
+      const t = translations[lang];
+      document.documentElement.lang = lang;
+      document.getElementById("page-title").textContent = t.title;
+      document.title = t.title;
+      document.getElementById("section-giveaway-title").textContent = t.giveaway;
+      document.getElementById("giveaway-text").textContent = t.giveawayText;
+    }
+    window.addEventListener('DOMContentLoaded', () => {
+      const selector = document.getElementById('lang-select');
+      setLanguage(selector.value);
+    });
+  </script>
+</head>
+<body>
+  <header>
+    <div class="language-dropdown">
+      <select id="lang-select" onchange="setLanguage(this.value)">
+        <option value="bg">🇧🇬 Български</option>
+        <option value="en">🇬🇧 English</option>
+        <option value="es">🇪🇸 Español</option>
+      </select>
+    </div>
+    <img src="logo.png" alt="logo" />
+  </header>
+  <section id="giveaway">
+    <h2><span id="section-giveaway-title">Giveaway</span></h2>
+    <p id="giveaway-text">Включи се сега за шанс да спечелиш!</p>
+    <a class="e-widget no-button" href="https://gleam.io/IIuoe/mishoplayz-ultimate-giveaway" rel="nofollow">
+      MishoPlayz Ultimate Giveaway
+    </a>
+    <script type="text/javascript" src="https://widget.gleamjs.io/e.js" async></script>
+  </section>
+</body>
+</html>
+
